@@ -54,10 +54,10 @@ export default function HMMembers() {
   return (
     <PrimarySection>
       <SecondryTitle title="اعضای تیم اینوا" icon={<HiOutlineUsers />} />
-      <div className={twMerge(members?.length ? "flex items-center justify-center @max-md:flex-col gap-5" : null)}>
-        {members?.length ? (
+      <div className={twMerge(members ? "flex items-center justify-center @max-md:flex-col gap-5" : null)}>
+        {members ? (
           members.data?.map(
-            ({ id, full_name, bio, avatar, role }: any, i: number) => {
+            ({ id, full_name, bio, avatar, role}: any, i: number) => {
               return (
                 <Fragment key={id}>
                   <Badge.Ribbon text={roles[role]} color="#013125">
