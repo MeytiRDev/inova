@@ -12,6 +12,7 @@ import { Badge } from "antd";
 import axios from "axios";
 import { Fragment } from "react";
 import { HiOutlineUsers } from "react-icons/hi2";
+import { twMerge } from "tailwind-merge";
 
 export default function HMMembers() {
   const members = useQuery({
@@ -53,7 +54,7 @@ export default function HMMembers() {
   return (
     <PrimarySection>
       <SecondryTitle title="اعضای تیم اینوا" icon={<HiOutlineUsers />} />
-      <div className={members?.length ? "flex items-center justify-center @max-md:flex-col gap-5" : null}>
+      <div className={twMerge(members?.length ? "flex items-center justify-center @max-md:flex-col gap-5" : null)}>
         {members?.length ? (
           members.data?.map(
             ({ id, full_name, bio, avatar, role }: any, i: number) => {
