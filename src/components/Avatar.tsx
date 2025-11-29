@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { Image } from "antd";
+import { RiUser4Line, RiUserLine } from "react-icons/ri";
 import { twMerge } from "tailwind-merge";
 
 export default function Avatar({ src, className }: any) {
@@ -10,16 +11,23 @@ export default function Avatar({ src, className }: any) {
         className
       )}
     >
-      <Image
-        preview={{ movable: false, actionsRender: () => null }}
-        src={src}
-        classNames={{
-          image: "size-full object-cover object-center",
-          popup: {
-            footer: "hidden",
-          },
-        }}
-      />
+      {src ? (
+        <Image
+          preview={{ movable: false, actionsRender: () => null }}
+          src={src}
+          classNames={{
+            image: "size-full! object-cover! object-center!",
+            root: "size-full!",
+            popup: {
+              footer: "hidden",
+            },
+          }}
+        />
+      ) : (
+        <div className="flex items-center justify-center size-full bg-gray-100 dark:bg-gray-900">
+          <RiUser4Line className="text-3xl text-black dark:text-white/50" />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import CResult from "@/components/antd/CResult";
 import Card from "@/components/card/Card";
 import CardDateTime from "@/components/card/CardDateTime";
 import CardDescription from "@/components/card/CardDescription";
@@ -6,7 +7,9 @@ import CardPicture from "@/components/card/CardPicture";
 import CardTitle from "@/components/card/CardTitle";
 import PrimaryDescription from "@/components/description/PrimaryDescription";
 import SecondryTitle from "@/components/title/SecondryTitle";
+import { Result } from "antd";
 import React, { Fragment } from "react";
+import { twMerge } from "tailwind-merge";
 
 export default function DVProjects({ projects }: any) {
   return (
@@ -25,26 +28,30 @@ export default function DVProjects({ projects }: any) {
 در ادامه چند تا از موردعلاقه‌هایم را می‌بینید."
         className="w-2/3 text-center mx-auto"
       />
-      <div className="grid grid-cols-3 gap-5">
-        {projects?.map((project) => {
-          return (
-            <Fragment key={project?.id}>
-              <Card>
-                <CardPicture
-                  avatar={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/project/${project.id}`}
-                />
-                <div className="p-3">
-                  <CardTitle title={project.title} />
-                  <CardDateTime
-                    dateTime={`از ${project.start_date} تا ${project.end_date}`}
+      <div className={twMerge("", projects ? "grid grid-cols-3 gap-5" : null)}>
+        {projects ? (
+          projects?.map((project) => {
+            return (
+              <Fragment key={project?.id}>
+                <Card>
+                  <CardPicture
+                    avatar={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/project/${project.id}`}
                   />
-                  <CardDescription description={project?.description} />
-                  {/* <CardExternalLinks links={project?.link} /> */}
-                </div>
-              </Card>
-            </Fragment>
-          );
-        })}
+                  <div className="p-3">
+                    <CardTitle title={project.title} />
+                    <CardDateTime
+                      dateTime={`از ${project.start_date} تا ${project.end_date}`}
+                    />
+                    <CardDescription description={project?.description} />
+                    {/* <CardExternalLinks links={project?.link} /> */}
+                  </div>
+                </Card>
+              </Fragment>
+            );
+          })
+        ) : (
+          <CResult title="در حال حاضر اطلاعاتی برای پروژه ها اخیر درج نشده!" />
+        )}
       </div>
     </div>
   );

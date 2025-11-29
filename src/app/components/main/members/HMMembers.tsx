@@ -1,4 +1,5 @@
 "use client";
+import CResult from "@/components/antd/CResult";
 import Card from "@/components/card/Card";
 import CardDescription from "@/components/card/CardDescription";
 import CardPicture from "@/components/card/CardPicture";
@@ -52,23 +53,27 @@ export default function HMMembers() {
   return (
     <PrimarySection>
       <SecondryTitle title="اعضای تیم اینوا" icon={<HiOutlineUsers />} />
-      <div className="flex items-center justify-center @max-md:flex-col gap-5">
-        {members.data?.map(
-          ({ id, full_name, bio, avatar, role }: any, i: number) => {
-            return (
-              <Fragment key={id}>
-                <Badge.Ribbon text={roles[role]} color="#013125">
-                  <Card>
-                    <CardPicture avatar={avatar} url={`/dv/${id}`} />
-                    <div className="p-3">
-                      <CardTitle title={full_name} url={`/dv/${id}`} />
-                      <CardDescription description={bio} />
-                    </div>
-                  </Card>
-                </Badge.Ribbon>
-              </Fragment>
-            );
-          }
+      <div className={members?.length ? "flex items-center justify-center @max-md:flex-col gap-5" : null}>
+        {members?.length ? (
+          members.data?.map(
+            ({ id, full_name, bio, avatar, role }: any, i: number) => {
+              return (
+                <Fragment key={id}>
+                  <Badge.Ribbon text={roles[role]} color="#013125">
+                    <Card>
+                      <CardPicture avatar={avatar} url={`/dv/${id}`} />
+                      <div className="p-3">
+                        <CardTitle title={full_name} url={`/dv/${id}`} />
+                        <CardDescription description={bio} />
+                      </div>
+                    </Card>
+                  </Badge.Ribbon>
+                </Fragment>
+              );
+            }
+          )
+        ) : (
+          <CResult title="در حال حاضر اطلاعاتی درباره اعضا درج نشده" />
         )}
       </div>
     </PrimarySection>

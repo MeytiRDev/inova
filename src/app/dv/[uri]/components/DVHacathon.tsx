@@ -3,6 +3,10 @@ import SecondryDescription from "@/components/description/SecondryDescription";
 import SecondryTitle from "@/components/title/SecondryTitle";
 import React, { Fragment } from "react";
 import DVHacathonCard from "./DVHacathonCard";
+import { Alert, Result } from "antd";
+import Image from "next/image";
+import { AiFillInfoCircle } from "react-icons/ai";
+import CResult from "@/components/antd/CResult";
 
 export default function DVhacathons({ hacathon }: any) {
   return (
@@ -22,13 +26,17 @@ export default function DVhacathons({ hacathon }: any) {
         className="w-2/3 mx-auto text-center"
       />
       <div className="">
-        {hacathon?.map((hacathon: any) => {
-          return (
-            <Fragment key={hacathon?.id}>
-              <DVHacathonCard {...hacathon} />
-            </Fragment>
-          );
-        })}
+        {hacathon ? (
+          hacathon?.map((hacathon: any) => {
+            return (
+              <Fragment key={hacathon?.id}>
+                <DVHacathonCard {...hacathon} />
+              </Fragment>
+            );
+          })
+        ) : (
+          <CResult />
+        )}
       </div>
     </div>
   );
