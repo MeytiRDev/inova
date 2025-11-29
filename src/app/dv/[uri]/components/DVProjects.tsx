@@ -30,7 +30,7 @@ export default function DVProjects({ projects }: any) {
       />
       <div className={twMerge("", projects ? "grid grid-cols-3 gap-5" : null)}>
         {projects ? (
-          projects?.map((project) => {
+          projects?.map((project: any) => {
             return (
               <Fragment key={project?.id}>
                 <Card>

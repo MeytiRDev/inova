@@ -27,14 +27,14 @@ export default function RHFContext({
         rules={rules}
         render={({ field }) => {
           const fields = Children.map(children, (child, i) => {
-            return cloneElement(child, { RHFConfigs: { field, name } });
+            return cloneElement<any>(child, { RHFConfigs: { field, name } });
           });
 
-          return fields;
+          return fields as any;
         }}
       />
       <p role="alert" className="empty:hidden text-red-600 text-sm mt-1">
-        {errors[name]?.message}
+        {errors[name]?.message as string}
       </p>
     </div>
   );

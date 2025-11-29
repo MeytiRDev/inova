@@ -2,7 +2,7 @@ import Link from "next/link";
 
 type CardTitleProps = {
   title: string;
-  url: string
+  url?: string
 };
 
 export default function CardTitle({ title, url = "/" }: CardTitleProps) {

@@ -10,7 +10,7 @@ export default function DVExperience({ experience }: { experience: object[] }) {
       <SecondryTitle title="تجربه های کاری" />
       <div className="space-y-5">
         {experience ? (
-          experience?.map((ex, i) => {
+          experience?.map((ex: any, i) => {
             return (
               <Fragment key={ex.id}>
                 <DVExperienceCard {...ex} />

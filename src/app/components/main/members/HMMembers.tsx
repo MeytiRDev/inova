@@ -14,8 +14,16 @@ import { Fragment } from "react";
 import { HiOutlineUsers } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
+type MembersSchema = {
+  id: string;
+  full_name: string;
+  bio: string;
+  avatar: string;
+  role: keyof typeof roles;
+};
+
 export default function HMMembers() {
-  const members = useQuery({
+  const members: any = useQuery({
     queryKey: ["members"],
     queryFn: async () => {
       const members = await axios({
@@ -54,25 +62,29 @@ export default function HMMembers() {
   return (
     <PrimarySection>
       <SecondryTitle title="اعضای تیم اینوا" icon={<HiOutlineUsers />} />
-      <div className={twMerge(members ? "flex items-center justify-center @max-md:flex-col gap-5" : null)}>
+      <div
+        className={twMerge(
+          members
+            ? "flex items-center justify-center @max-md:flex-col gap-5"
+            : null
+        )}
+      >
         {members ? (
-          members.data?.map(
-            ({ id, full_name, bio, avatar, role}: any, i: number) => {
-              return (
-                <Fragment key={id}>
-                  <Badge.Ribbon text={roles[role]} color="#013125">
-                    <Card>
-                      <CardPicture avatar={avatar} url={`/dv/${id}`} />
-                      <div className="p-3">
-                        <CardTitle title={full_name} url={`/dv/${id}`} />
-                        <CardDescription description={bio} />
-                      </div>
-                    </Card>
-                  </Badge.Ribbon>
-                </Fragment>
-              );
-            }
-          )
+          members.data?.map((member: MembersSchema) => {
+            return (
+              <Fragment key={member.id}>
+                <Badge.Ribbon text={roles[member.role]} color="#013125">
+                  <Card>
+                    <CardPicture avatar={member.avatar} url={`/dv/${member.id}`} />
+                    <div className="p-3">
+                      <CardTitle title={member.full_name} url={`/dv/${member.id}`} />
+                      <CardDescription description={member.bio} />
+                    </div>
+                  </Card>
+                </Badge.Ribbon>
+              </Fragment>
+            );
+          })
         ) : (
           <CResult title="در حال حاضر اطلاعاتی درباره اعضا درج نشده" />
         )}
