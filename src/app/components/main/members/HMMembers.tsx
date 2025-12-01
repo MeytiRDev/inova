@@ -70,7 +70,7 @@ export default function HMMembers() {
         )}
       >
         {members ? (
-          members.data?.map((member: MembersSchema) => {
+          members?.data?.map((member: MembersSchema) => {
             return (
               <Fragment key={member.id}>
                 <Badge.Ribbon text={roles[member.role]} color="#013125">
