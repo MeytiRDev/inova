@@ -64,8 +64,9 @@ export default function HMMembers() {
       <SecondryTitle title="اعضای تیم اینوا" icon={<HiOutlineUsers />} />
       <div
         className={twMerge(
+          "grow",
           members
-            ? "w-full flex items-center justify-center @max-md:flex-col gap-5"
+            ? "flex items-center justify-center @max-md:flex-col gap-5"
             : null
         )}
       >
@@ -73,11 +74,21 @@ export default function HMMembers() {
           members?.data?.map((member: MembersSchema) => {
             return (
               <Fragment key={member.id}>
-                <Badge.Ribbon text={roles[member.role]} color="#013125">
+                <Badge.Ribbon
+                  text={roles[member.role]}
+                  color="#013125"
+                  classNames={{ root: "w-full" }}
+                >
                   <Card>
-                    <CardPicture avatar={member.avatar} url={`/dv/${member.id}`} />
+                    <CardPicture
+                      avatar={member.avatar}
+                      url={`/dv/${member.id}`}
+                    />
                     <div className="p-3">
-                      <CardTitle title={member.full_name} url={`/dv/${member.id}`} />
+                      <CardTitle
+                        title={member.full_name}
+                        url={`/dv/${member.id}`}
+                      />
                       <CardDescription description={member.bio} />
                     </div>
                   </Card>

@@ -13,7 +13,7 @@ export default function CResult(props: ResultProps) {
       status="success"
       title="در حال حاضر اطلاعاتی برای مسابقات درج نشده است!"
       classNames={{
-        root: "bg-green-600/10 dark:bg-green-600/15 rounded-xl",
+        root: "w-full bg-green-600/10 dark:bg-green-600/15 rounded-xl",
         title: "dark:text-white!",
       }}
       {...props}
