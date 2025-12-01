@@ -65,7 +65,7 @@ export default function HMMembers() {
       <div
         className={twMerge(
           members
-            ? "flex items-center justify-center @max-md:flex-col gap-5"
+            ? "w-full flex items-center justify-center @max-md:flex-col gap-5"
             : null
         )}
       >
@@ -73,7 +73,7 @@ export default function HMMembers() {
           members?.data?.map((member: MembersSchema) => {
             return (
               <Fragment key={member.id}>
-                <Badge.Ribbon text={roles[member.role]} color="#013125" className="w-full">
+                <Badge.Ribbon text={roles[member.role]} color="#013125">
                   <Card>
                     <CardPicture avatar={member.avatar} url={`/dv/${member.id}`} />
                     <div className="p-3">
