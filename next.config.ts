@@ -8,8 +8,13 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
         port: "8000",
       },
+      {
+        protocol: "https",
+        hostname: "inova-backend.liara.run",
+      },
     ],
   },
+
   typescript: {
     ignoreBuildErrors: true,
   },
