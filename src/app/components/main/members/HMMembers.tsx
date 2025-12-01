@@ -69,11 +69,11 @@ export default function HMMembers() {
             : null
         )}
       >
-        {members ? (
+        {members?.data ? (
           members?.data?.map((member: MembersSchema) => {
             return (
               <Fragment key={member.id}>
-                <Badge.Ribbon text={roles[member.role]} color="#013125">
+                <Badge.Ribbon text={roles[member.role]} color="#013125" className="w-full">
                   <Card>
                     <CardPicture avatar={member.avatar} url={`/dv/${member.id}`} />
                     <div className="p-3">
