@@ -1,19 +1,21 @@
 import CAlert from "@/components/antd/CAlert";
 import PrimarySection from "@/components/section/PrimarySection";
 import SecondryTitle from "@/components/title/SecondryTitle";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { twMerge } from "tailwind-merge";
 
 export default function DVSkills({ skills }: { skills: string[] }) {
+  const isSkills = skills && skills?.length;
+
   return (
     <PrimarySection>
       <SecondryTitle title="مهارت ها" />
       <div
         className={twMerge(
-          skills ? "flex items-center justify-start flex-wrap gap-2" : null
+          isSkills ? "flex items-center justify-start flex-wrap gap-2" : null
         )}
       >
-        {skills ? (
+        {isSkills ? (
           skills?.map((_, i) => {
             return (
               <Fragment key={i}>

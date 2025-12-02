@@ -22,7 +22,6 @@ export default function DVExperienceCard({
       drawerElement?.firstChild as HTMLElement
     ).getBoundingClientRect().height;
     const drawerElementHeight = drawerElement.style.height;
-    console.log(drawerChildHeight);
 
     !drawerElementHeight
       ? (drawerElement.style.height = drawerChildHeight + "px")
@@ -38,7 +37,8 @@ export default function DVExperienceCard({
         <div className="flex items-center justify-center gap-3">
           <div className="size-16 rounded-full overflow-hidden">
             <Image
-              src="/pictures/test.jpg"
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/experience/${id}`}
+              loader={({ src }) => src}
               alt="..."
               width={64}
               height={64}
@@ -54,7 +54,9 @@ export default function DVExperienceCard({
           </div>
         </div>
         <div>
-          <SecondryDescription description={`از ${start_date} تا ${end_date}`} />
+          <SecondryDescription
+            description={`از ${start_date} تا ${end_date}`}
+          />
         </div>
       </div>
       <div

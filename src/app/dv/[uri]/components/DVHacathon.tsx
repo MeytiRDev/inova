@@ -1,14 +1,12 @@
 import PrimaryDescription from "@/components/description/PrimaryDescription";
-import SecondryDescription from "@/components/description/SecondryDescription";
 import SecondryTitle from "@/components/title/SecondryTitle";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import DVHacathonCard from "./DVHacathonCard";
-import { Alert, Result } from "antd";
-import Image from "next/image";
-import { AiFillInfoCircle } from "react-icons/ai";
 import CResult from "@/components/antd/CResult";
 
 export default function DVhacathons({ hacathon }: any) {
+  const isAchievment = hacathon && hacathon?.length;
+
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-center">
@@ -26,7 +24,7 @@ export default function DVhacathons({ hacathon }: any) {
         className="w-2/3 mx-auto text-center"
       />
       <div className="">
-        {hacathon ? (
+        {isAchievment ? (
           hacathon?.map((hacathon: any) => {
             return (
               <Fragment key={hacathon?.id}>

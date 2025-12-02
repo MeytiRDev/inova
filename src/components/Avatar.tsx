@@ -1,6 +1,6 @@
 "use client";
 import { Image } from "antd";
-import { RiUser4Line, RiUserLine } from "react-icons/ri";
+import { RiUser4Line } from "react-icons/ri";
 import { twMerge } from "tailwind-merge";
 
 export default function Avatar({ src, className }: any) {

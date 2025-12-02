@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { RiUserLine } from "react-icons/ri";
@@ -8,6 +9,7 @@ export default function CardPicture({ avatar, url = "/" }: any) {
       {avatar ? (
         <Image
           src={avatar}
+          loader={({ src }) => src}
           alt="..."
           width={300}
           height={300}
