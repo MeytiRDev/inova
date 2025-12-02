@@ -23,16 +23,16 @@ export default function DeveloperPage() {
         method: "GET",
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/${uri}`,
       });
-      const avatar = await axios({
-        method: "GET",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/media/member/${uri}`,
-        responseType: "blob",
-      });
+      // const avatar = await axios({
+      //   method: "GET",
+      //   url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/media/member/${uri}`,
+      //   responseType: "blob",
+      // });
 
       return {
         ...member.data,
-        avatar:
-          avatar.data instanceof Blob ? URL.createObjectURL(avatar.data) : null,
+        // avatar:
+        //   avatar.data instanceof Blob ? URL.createObjectURL(avatar.data) : null,
       };
     },
   });
