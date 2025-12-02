@@ -11,7 +11,9 @@ import { twMerge } from "tailwind-merge";
 
 export default function DVProjects({ projects }: any) {
   const isProjects = projects && projects?.length;
-  const isStartAndEndDate = projects?.start_date || projects?.end_date
+  const isStartAndEndDate = `${
+    projects?.end_date ? `${projects?.end_date} پایان` : ""
+  } ${projects?.start_date ? `${projects?.start_date} شروع` : ""}`;
 
   return (
     <div className="space-y-5">
@@ -42,11 +44,7 @@ export default function DVProjects({ projects }: any) {
                   />
                   <div className="p-3">
                     <CardTitle title={project.title} />
-                    <CardDateTime
-                      dateTime={`از ${project.start_date || ""} تا ${
-                        project.end_date || ""
-                      }`}
-                    />
+                    <CardDateTime dateTime={isStartAndEndDate} />
                     <CardDescription description={project?.description} />
                     {/* <CardExternalLinks links={project?.link} /> */}
                   </div>

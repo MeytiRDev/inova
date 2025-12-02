@@ -1,25 +1,36 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { RiUserLine } from "react-icons/ri";
+import { SyntheticEvent } from "react";
 
 export default function CardPicture({ avatar, url = "/" }: any) {
+  function errorHandling({ target }: SyntheticEvent<HTMLImageElement, Event>) {
+    const targetElement = target as HTMLImageElement;
+    const containerElement = document.querySelector("#container");
+
+    targetElement.remove();
+
+    const altElement = document.createElement("div");
+    altElement.classList.value = "size-full flex items-center justify-center";
+
+    containerElement?.appendChild(altElement);
+  }
+
   return (
-    <Link href={url} className="block h-52">
-      {avatar ? (
-        <Image
-          src={avatar}
-          loader={({ src }) => src}
-          alt="..."
-          width={300}
-          height={300}
-          className="size-full object-cover object-center"
-        />
-      ) : (
-        <div className="size-full flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-          <RiUserLine className="text-3xl text-black dark:text-white" />
-        </div>
-      )}
+    <Link
+      id="container"
+      href={url}
+      className="block h-52 border-b border-solid border-black/10 dark:border-white/15"
+    >
+      <Image
+        src={avatar}
+        loader={({ src }) => src}
+        onError={errorHandling}
+        alt="..."
+        width={300}
+        height={300}
+        className="size-full object-cover object-center"
+      />
     </Link>
   );
 }

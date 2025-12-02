@@ -40,7 +40,7 @@ export default function RootLayout({
         className={`${danaRegular.className} ${danaMedium.variable} ${danaBold.variable} @container dark:bg-black`}
       >
         <main>
-          <ReactQueryProvider>
+          <ReactQueryProvider >
             <ConfigProvider theme={antdThemeConfigs} direction="rtl">{children}</ConfigProvider>
           </ReactQueryProvider>
         </main>

@@ -37,8 +37,6 @@ export default function DeveloperPage() {
     },
   });
 
-  console.log(data);
-
   return (
     <div className="@min-4xl:max-w-4xl mx-auto pt-16 pb-26 @max-md:pb-20 @max-md:pt-0">
       <div className="space-y-20">
