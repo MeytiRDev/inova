@@ -20,8 +20,12 @@ type MembersSchema = {
 };
 
 export default async function HMMembers() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/team`);
-  const members = await res.json();
+  const members = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/team`)
+    .then(async (data) => {
+      const json = await data.json();
+      return json;
+    })
+    .catch(() => {});
 
   return (
     <PrimarySection>
