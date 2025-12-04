@@ -60,17 +60,11 @@ export default function DeveloperPage() {
                   className="max-md:text-center"
                 />
               </>
-            ) : (
-              <div className="">
-                <CAlert
-                  alertProps={{
-                    title: "در حال حاظر اطلاعاتی درج نشده است",
-                  }}
-                />
-              </div>
-            )}
+            ) : null}
           </div>
-          <Avatar src={data?.avatar} className="size-72" />
+          {data?.avatar ? (
+            <Avatar src={data?.avatar} className="size-72" />
+          ) : null}
         </div>
 
         {data?.description?.length ? (
