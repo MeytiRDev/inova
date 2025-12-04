@@ -1,7 +1,6 @@
 import Avatar from "@/components/Avatar";
 import PrimaryDescription from "@/components/description/PrimaryDescription";
 import PrimaryTitle from "@/components/title/PrimaryTitle";
-import Image from "next/image";
 
 export default function HHeader() {
   return (
@@ -13,10 +12,10 @@ export default function HHeader() {
 ما با ارائه‌ راهکارهای دقیق، حرفه‌ای و منطبق با نیاز کسب‌وکارها، تجربه‌ای متمایز و کارآمد در دنیای دیجیتال خلق می‌کنیم."
         />
       </div>
-      <div className="shrink-0 hidden @min-md:block">
-        <Avatar src="/pictures/inova.jpg" className="size-60" />
+      <div className="shrink-0">
+        <Avatar src="/pictures/inova.jpg" className="size-72" />
       </div>
-      <div className="shrink-0 @min-md:hidden w-full">
+      {/* <div className="shrink-0 @min-md:hidden w-full">
         <Image
           src="/pictures/inova.jpg"
           alt="..."
@@ -24,7 +23,7 @@ export default function HHeader() {
           height={400}
           className="size-full object-cover object-center aspect-3/2"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

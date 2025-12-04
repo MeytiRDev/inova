@@ -41,7 +41,7 @@ export default function DVEducation({ isData, educations }: DVEducationProps) {
                     title={field_of_study}
                     titleBadge={degree}
                     subTitle={university}
-                    dateTime={`شروع ${start_year} پایان ${end_year}`}
+                    dateTime={`شروع ${start_year || "نامشخص"} پایان ${end_year || "نامشخس"}`}
                     description={description}
                     field="education"
                   />

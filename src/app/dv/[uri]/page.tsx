@@ -72,15 +72,31 @@ export default function DeveloperPage() {
           </div>
           <Avatar src={data?.avatar} className="size-72" />
         </div>
-        <DVAbout about={data?.description} />
-        <DVExperience experience={data?.work_experiences} />
-        <DVEducation
-          isData={data?.educations?.length}
-          educations={data?.educations}
-        />
-        <DVSkills skills={data?.skills} />
-        <DVProjects projects={data?.projects} />
-        <DVhacathons hacathon={data?.achievements} />
+
+        {data?.description?.length ? (
+          <DVAbout about={data?.description} />
+        ) : null}
+
+        {data?.work_experiences?.length ? (
+          <DVExperience experience={data?.work_experiences} />
+        ) : null}
+
+        {data?.educations?.length ? (
+          <DVEducation
+            isData={data?.educations?.length}
+            educations={data?.educations}
+          />
+        ) : null}
+
+        {data?.skills?.length ? <DVSkills skills={data?.skills} /> : null}
+
+        {data?.projects?.length ? (
+          <DVProjects projects={data?.projects} />
+        ) : null}
+
+        {data?.achievements?.length ? (
+          <DVhacathons hacathon={data?.achievements} />
+        ) : null}
       </div>
     </div>
   );

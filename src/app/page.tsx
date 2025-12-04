@@ -4,7 +4,7 @@ import HMain from "./components/main/HMain";
 
 export default function Home() {
   return (
-    <div className="@min-4xl:max-w-4xl pt-16 pb-32 @max-md:pb-24 @max-md:pt-0 space-y-20 mx-auto">
+    <div className="@min-4xl:max-w-4xl pt-16 pb-32 @max-md:pt-10 max-md:pb-24 space-y-20 mx-auto">
       <HHeader />
       <div className="@max-md:px-3">
         <HMain />
