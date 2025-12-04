@@ -10,7 +10,6 @@ import PrimaryDescription from "@/components/description/PrimaryDescription";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import CAlert from "@/components/antd/CAlert";
 import { roles } from "@/store/roles";
 import DVEducation from "./components/DVEducations";
 
