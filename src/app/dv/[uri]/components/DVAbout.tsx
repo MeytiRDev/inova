@@ -1,5 +1,5 @@
 import CAlert from "@/components/antd/CAlert";
-import SecondryDescription from "@/components/description/SecondryDescription";
+import AcordianDescription from "@/components/description/AcordianDescription";
 import PrimarySection from "@/components/section/PrimarySection";
 import SecondryTitle from "@/components/title/SecondryTitle";
 import { BiInfoCircle } from "react-icons/bi";
@@ -9,7 +9,7 @@ export default function DVAbout({ about }: { about: string }) {
     <PrimarySection>
       <SecondryTitle title="درباره" icon={<BiInfoCircle />} />
       {about ? (
-        <SecondryDescription description={about} />
+        <AcordianDescription className="line-clamp-none @max-md:line-clamp-3" description={about} />
       ) : (
         <CAlert
           alertProps={{

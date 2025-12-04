@@ -4,7 +4,7 @@ import NBTheme from "./NBTheme";
 
 export default function NavigationButtons() {
   return (
-    <div className="flex  justify-center gap-3 *:text-xl dark:*:text-white">
+    <div className="flex  justify-center gap-3 *:text-xl">
       <NBPages />
       <div className="w-px bg-black/10"></div>
       <NBSocialMedia />

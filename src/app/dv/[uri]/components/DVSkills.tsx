@@ -16,11 +16,11 @@ export default function DVSkills({ skills }: { skills: string[] }) {
         )}
       >
         {isSkills ? (
-          skills?.map((_, i) => {
+          skills?.map((skill, i) => {
             return (
               <Fragment key={i}>
                 <div className="shrink-0 font-dana-medium leading-[1.2] text-white rounded-md text-sm dark:bg-white dark:text-black bg-black px-2 py-1">
-                  nodejs
+                  {skill}
                 </div>
               </Fragment>
             );

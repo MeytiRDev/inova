@@ -8,8 +8,8 @@ export default function NBSocialMedia() {
       {socialMedias.map(({ active, icon, key, name, title, url }) => {
         if (!requireSocialMedias.includes(name)) return null;
         return (
-          <a href={url}>
-            <span className="*:text-xl! *:text-black! *:dark:text-white!">{icon}</span>
+          <a key={key} href={url}>
+            <span className="*:text-xl! *:text-black!">{icon}</span>
           </a>
         );
       })}

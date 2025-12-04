@@ -5,14 +5,25 @@ import Image from "next/image";
 import { MouseEvent } from "react";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
-export default function DVExperienceCard({
+type PrimaryAcordian = {
+  id: string;
+  title: string;
+  subTitle: string;
+  titleBadge: string;
+  dateTime: string;
+  description: string;
+  field: string;
+};
+
+export default function PrimaryAcordian({
   id,
-  company_name,
-  position,
-  start_date,
-  end_date,
+  dateTime,
+  subTitle,
+  title,
+  titleBadge,
   description,
-}: any) {
+  field,
+}: PrimaryAcordian) {
   function openDrawer(e: MouseEvent) {
     const targetElement = e.currentTarget as HTMLDivElement;
     const drawerElement = targetElement.querySelector(
@@ -30,14 +41,14 @@ export default function DVExperienceCard({
 
   return (
     <div
-      className="hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors rounded-xl p-2 space-y-3 group"
+      className="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-xl p-2 space-y-3 group"
       onClick={openDrawer}
     >
       <div className="flex items-center justify-between">
         <div className="grow flex items-center justify-center gap-3">
           <div className="size-16 rounded-full overflow-hidden">
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/experience/${id}`}
+              src={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/${field}/${id}`}
               loader={({ src }) => src}
               alt="..."
               width={64}
@@ -45,23 +56,21 @@ export default function DVExperienceCard({
               className="size-full object-cover object-center"
             />
           </div>
-          <div className="grow">
+          <div className="grow space-y-1">
             <div className="w-full flex items-center max-md:justify-between">
-              <ThirdTitle title={company_name} />
+              <div className="flex items-center justify-center gap-2">
+                <ThirdTitle title={title} />
+                <p className="empty:hidden font-dana-medium text-sm text-green-600 bg-green-600/15 rounded-lg px-2 py-1">
+                  {titleBadge}
+                </p>
+              </div>
               <MdOutlineKeyboardArrowLeft className="max-md:hidden text-lg dark:text-secondry invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-300" />
-              <SecondryDescription
-                description={`از ${start_date || "-"} تا ${end_date || "-"}`}
-                className="hidden max-md:block"
-              />
+              <p className="hidden max-md:block dark:text-white/50 text-sm">{dateTime}</p>
             </div>
-            <p className="text-sm dark:text-white">{position}</p>
+            <p className="text-sm dark:text-white">{subTitle}</p>
           </div>
         </div>
-
-        <SecondryDescription
-          description={`از ${start_date || "-"} تا ${end_date || "-"}`}
-          className="max-md:hidden"
-        />
+        <p className="max-md:hidden dark:text-white/50 text-sm">{dateTime}</p>
       </div>
       <div
         id="drawer"

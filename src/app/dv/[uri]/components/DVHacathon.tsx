@@ -21,7 +21,7 @@ export default function DVhacathons({ hacathon }: any) {
       <PrimaryDescription
         description="در دوران دانشگاه، در بیش از ۲۱ هکاتون شرکت کردم. آدم‌هایی از سراسر کشور دور هم جمع می‌شدند و در عرض فقط ۲-۳ روز چیزهای فوق‌العاده‌ای می‌ساختند.
 دیدن این همه امکان بی‌پایان که توسط گروهی از افراد باانگیزه و پرشور به واقعیت تبدیل می‌شد، واقعاً چشم‌گشا بود."
-        className="w-2/3 mx-auto text-center"
+        className="w-2/3 max-md:w-full mx-auto text-center"
       />
       <div className="">
         {isAchievment ? (

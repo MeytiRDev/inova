@@ -29,10 +29,10 @@ export default function DVProjects({ projects }: any) {
       <PrimaryDescription
         description="من روی پروژه‌های متنوعی کار کرده‌ام، از وب‌سایت‌های ساده گرفته تا برنامه‌های وب پیچیده.
 در ادامه چند تا از موردعلاقه‌هایم را می‌بینید."
-        className="w-2/3 text-center mx-auto"
+        className="w-2/3 max-md:w-full text-center mx-auto"
       />
       <div
-        className={twMerge("", isProjects ? "grid grid-cols-3 gap-5" : null)}
+        className={twMerge("", isProjects ? "grid grid-cols-3 max-md:grid-cols-1 gap-5" : null)}
       >
         {isProjects ? (
           projects?.map((project: any) => {
