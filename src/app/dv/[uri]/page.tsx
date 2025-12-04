@@ -43,7 +43,7 @@ export default function DeveloperPage() {
   });
 
   return (
-    <div className="@min-4xl:max-w-4xl mx-auto pt-16 pb-26 @max-md:pb-20 @max-md:pt-10 @max-md:px-3">
+    <div className="@min-4xl:max-w-4xl min-h-screen mx-auto pt-16 pb-26 @max-md:pb-20 @max-md:pt-10 @max-md:px-3">
       <div className="space-y-20 @max-md:space-y-14">
         <div className="flex items-center justify-center @max-md:flex-col-reverse gap-5">
           <div className="grow space-y-5 max-md:space-y-3">
