@@ -1,3 +1,4 @@
+"use client";
 import CResult from "@/components/antd/CResult";
 import Card from "@/components/card/Card";
 import CardBadge from "@/components/card/CardBadge";
@@ -7,6 +8,7 @@ import CardTitle from "@/components/card/CardTitle";
 import PrimarySection from "@/components/section/PrimarySection";
 import SecondryTitle from "@/components/title/SecondryTitle";
 import { roles } from "@/store/roles";
+import { useQuery } from "@tanstack/react-query";
 import { Fragment } from "react";
 import { HiOutlineUsers } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
@@ -19,13 +21,16 @@ type MembersSchema = {
   role: keyof typeof roles;
 };
 
-export default async function HMMembers() {
-  const members = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/team`)
-    .then(async (data) => {
-      const json = await data.json();
-      return json;
-    })
-    .catch(() => {});
+async function getMembers() {
+  try {
+    const response = await fetch(`https://inova-backend.liara.run/api/team`);
+    const json = await response?.json();
+    return json;
+  } catch (error) {}
+}
+
+export default function HMMembers() {
+  const members = useQuery({ queryKey: ["members"], queryFn: getMembers });
 
   return (
     <PrimarySection>
@@ -33,11 +38,13 @@ export default async function HMMembers() {
       <div
         className={twMerge(
           "grow",
-          members ? "grid grid-cols-3 @max-md:grid-cols-1 gap-5" : null
+          members.data ? "grid grid-cols-3 @max-md:grid-cols-1 gap-5" : null
         )}
       >
-        {members ? (
-          members?.map((member: MembersSchema) => {
+        {members.data ? (
+          members?.data?.map((member: MembersSchema) => {
+            console.log(member.id);
+
             return (
               <Fragment key={member.id}>
                 <Card>
