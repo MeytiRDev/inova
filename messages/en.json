@@ -1,0 +1,36 @@
+{
+  "global": {
+    "companyName": "inova",
+    "more": "more",
+    "close": "close"
+  },
+  "header": {
+    "navigation": {
+      "home": "home",
+      "aboutUs": "about us",
+      "members": "members"
+    },
+    "tools": {
+      "language": {
+        "title": "language",
+        "persian": "persian",
+        "english": "english"
+      }
+    },
+    "drawer": {
+      "title": "inva engineering company"
+    }
+  },
+  "main": {
+    "hero": {
+      "prefixCompanyName": "engineering company"
+    },
+    "aboutUs": {
+      "prefix_companyName": "about",
+      "description": "Expert team specializing in the design and development of professional systems (ERP • CRM • LMS • Online Stores) We focus on delivering the highest quality, thorough bug fixing, performance optimization, and building fully customized packages tailored to your needs. With deep expertise in JavaScript and Python, we create stable, scalable web applications that perfectly match your requirements — while also offering specialized training and support. Every idea deserves the best possible execution. We’re with you every step of the way, fully committed to making it happen."
+    },
+    "members": {
+      "title": "organization members"
+    }
+  }
+}

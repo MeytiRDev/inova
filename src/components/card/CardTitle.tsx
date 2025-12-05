@@ -9,7 +9,7 @@ export default function CardTitle({ title, url = "/" }: CardTitleProps) {
   return (
     <Link
       href={url}
-      className="text-lg font-dana-medium text-black! dark:text-white!"
+      className="text-xl font-dana-medium text-white!"
     >
       {title}
     </Link>

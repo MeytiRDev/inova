@@ -3,13 +3,20 @@ import { twMerge } from "tailwind-merge";
 
 type CardBadgeProps = {
   className?: string;
-  children: ReactElement;
+  title: string;
+  icon: ReactElement;
 };
 
-export default function CardBadge({ className, children }: CardBadgeProps) {
+export default function CardBadge({ className, title, icon }: CardBadgeProps) {
   return (
-    <div className={twMerge("absolute top-3 left-3 bg-white dark:bg-gray-800 dark:text-white rounded-xl py-1 px-2 text-sm", className)}>
-      {children}
+    <div
+      className={twMerge(
+        "absolute top-3 left-3 flex items-center justify-center gap-1 text-green-500 bg-bg-primary rounded-xl py-1.5 px-3 text-sm",
+        className
+      )}
+    >
+      <span>{icon}</span>
+      <p>{title}</p>
     </div>
   );
 }

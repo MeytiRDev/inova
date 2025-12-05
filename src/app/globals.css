@@ -3,8 +3,14 @@
 @theme {
   --font-dana-medium: "var(--font-dana-medium)";
   --font-dana-bold: "var(--font-dana-bold)";
+  --font-poppins-medium: "var(--font-poppins-medium)";
+  --font-poppins-bold: "var(--font-poppins-bold)";
+
   --color-primary: #013125;
   --color-secondry: #a6eb4e;
+
+  --color-bg-primary: #222831;
+  --color-bg-secondry: #393e46;
 }
 
 @custom-variant dark (&:where([data-theme-dark], [data-theme-dark] *));
@@ -34,7 +40,8 @@ h6 {
   word-spacing: -3px;
 }
 
-button {
+button,
+a {
   cursor: pointer;
 }
 
@@ -50,4 +57,16 @@ button {
 html[data-theme-dark] .hacathon_card_border {
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.custom-container {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* dropdwon */
+.ant-dropdown-menu.ant-dropdown-menu-root {
+  background-color: var(--color-bg-secondry) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }

@@ -20,7 +20,7 @@ export default function CardPicture({ avatar, url = "/" }: any) {
     <Link
       id="container"
       href={url}
-      className="block h-52 border-b border-solid border-black/10 dark:border-white/15"
+      className="block h-72 border-b border-solid border-black/10 dark:border-white/15"
     >
       <Image
         src={avatar}
@@ -29,7 +29,7 @@ export default function CardPicture({ avatar, url = "/" }: any) {
         alt="..."
         width={300}
         height={300}
-        className="size-full object-cover object-center"
+        className="size-full object-cover object-top"
       />
     </Link>
   );

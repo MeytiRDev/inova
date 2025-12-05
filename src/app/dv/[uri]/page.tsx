@@ -10,7 +10,7 @@ import PrimaryDescription from "@/components/description/PrimaryDescription";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { roles } from "@/store/roles";
+import { membersRole } from "@/store/roles";
 import DVEducation from "./components/DVEducations";
 
 export default function DeveloperPage() {
@@ -51,7 +51,7 @@ export default function DeveloperPage() {
                 <div className="flex items-center gap-2">
                   <PrimaryTitle title={data?.full_name} />
                   <div className="empty:hidden bg-green-600/15 font-dana-medium text-green-600 rounded-xl px-2 py-1">
-                    {roles[data?.role]}
+                    {membersRole[data?.role]}
                   </div>
                 </div>
                 <PrimaryDescription
