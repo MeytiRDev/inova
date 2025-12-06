@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 type CardBadgeProps = {
   className?: string;
   title: string;
-  icon: ReactElement;
+  icon: any;
 };
 
 export default function CardBadge({ className, title, icon }: CardBadgeProps) {

@@ -51,7 +51,7 @@ export default function DeveloperPage() {
                 <div className="flex items-center max-md:flex-col gap-2">
                   <PrimaryTitle title={data?.full_name} />
                   <div className="empty:hidden bg-green-600/15 font-dana-medium text-green-600 rounded-xl px-2 py-1">
-                    {membersRole[data?.role]?.title}
+                    {membersRole[data?.role as keyof typeof membersRole]?.title}
                   </div>
                 </div>
                 <PrimaryDescription
