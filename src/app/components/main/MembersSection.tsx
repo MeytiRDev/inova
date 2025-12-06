@@ -7,7 +7,7 @@ export default async function MembersSection() {
   const locale = await getLocale();
 
   return (
-    <section>
+    <section id="members">
       <div className="custom-container">
         <div className="space-y-8">
           <h2

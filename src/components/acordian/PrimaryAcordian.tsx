@@ -41,7 +41,7 @@ export default function PrimaryAcordian({
 
   return (
     <div
-      className="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-xl p-2 space-y-3 group"
+      className="bg-bg-secondry transition-colors rounded-xl p-3 space-y-3 group"
       onClick={openDrawer}
     >
       <div className="flex items-center justify-between">
@@ -57,20 +57,20 @@ export default function PrimaryAcordian({
             />
           </div>
           <div className="grow space-y-1">
-            <div className="w-full flex items-center max-md:justify-between">
+            <div className="w-full flex items-center max-md:justify-between max-md:flex-col max-md:items-start">
               <div className="flex items-center justify-center gap-2">
                 <ThirdTitle title={title} />
                 <p className="empty:hidden font-dana-medium text-sm text-green-600 bg-green-600/15 rounded-lg px-2 py-1">
                   {titleBadge}
                 </p>
               </div>
-              <MdOutlineKeyboardArrowLeft className="max-md:hidden text-lg dark:text-secondry invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-300" />
-              <p className="hidden max-md:block dark:text-white/50 text-sm">{dateTime}</p>
+              <MdOutlineKeyboardArrowLeft className="max-md:hidden text-lg text-green-500 invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-300" />
+              <p className="hidden max-md:block text-white/75 text-sm">{dateTime}</p>
             </div>
-            <p className="text-sm dark:text-white">{subTitle}</p>
+            <p className="text-sm text-white">{subTitle}</p>
           </div>
         </div>
-        <p className="max-md:hidden dark:text-white/50 text-sm">{dateTime}</p>
+        <p className="max-md:hidden text-white/75 text-sm">{dateTime}</p>
       </div>
       <div
         id="drawer"

@@ -42,10 +42,11 @@ export default function HeaderToolsMobile({
     const accordianInfo = accordianElem.getBoundingClientRect();
     const containerInfo = containerElem.getBoundingClientRect();
 
-    console.log(accordianInfo.height);
+    console.log(containerInfo.height);
+    
 
     if (!accordianInfo.height) {
-      accordianElem.style.height = `${containerInfo.height}px`;
+      accordianElem.style.height = `92px`;
     } else {
       accordianElem.style.height = "0";
     }

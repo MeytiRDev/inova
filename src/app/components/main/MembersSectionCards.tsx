@@ -6,11 +6,9 @@ import CardDescription from "@/components/card/CardDescription";
 import CardPicture from "@/components/card/CardPicture";
 import CardTitle from "@/components/card/CardTitle";
 import PrimarySection from "@/components/section/PrimarySection";
-
 import { membersRole } from "@/store/roles";
 import { useQuery } from "@tanstack/react-query";
 import { Fragment } from "react";
-import { HiOutlineUsers } from "react-icons/hi2";
 import { twMerge } from "tailwind-merge";
 
 type MembersSchema = {
@@ -23,7 +21,7 @@ type MembersSchema = {
 
 async function getMembers() {
   try {
-    const response = await fetch(`https://inova-backend.liara.run/api/team`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/team`);
     const json = await response?.json();
     return json;
   } catch (error) {}
@@ -52,7 +50,7 @@ export default function MembersSectionCards() {
                     />
 
                     <CardPicture
-                      avatar={`https://inova-backend.liara.run/api/team/media/member/${member.id}`}
+                      avatar={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/member/${member.id}`}
                       url={`/dv/${member.id}`}
                     />
                     <div className="p-3">

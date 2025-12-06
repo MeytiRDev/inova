@@ -13,62 +13,62 @@ import { useParams } from "next/navigation";
 import { membersRole } from "@/store/roles";
 import DVEducation from "./components/DVEducations";
 
+async function getUserInformation(uri: string) {
+  const member = await axios({
+    method: "GET",
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/${uri}`,
+  });
+  const avatar = await axios({
+    method: "GET",
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/media/member/${uri}`,
+    responseType: "blob",
+  })
+    .then((data) => data)
+    .catch(() => {});
+
+  return {
+    ...member.data,
+    avatar:
+      avatar?.data instanceof Blob ? URL.createObjectURL(avatar.data) : null,
+  };
+}
+
 export default function DeveloperPage() {
   const { uri } = useParams();
 
   const { data } = useQuery({
     queryKey: ["member", uri],
-    queryFn: async () => {
-      const member = await axios({
-        method: "GET",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/${uri}`,
-      });
-      const avatar = await axios({
-        method: "GET",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/team/media/member/${uri}`,
-        responseType: "blob",
-      })
-        .then((data) => data)
-        .catch(() => {});
-
-      return {
-        ...member.data,
-        avatar:
-          avatar?.data instanceof Blob
-            ? URL.createObjectURL(avatar.data)
-            : null,
-      };
-    },
+    queryFn: () => getUserInformation(uri as string),
   });
 
   return (
-    <div className="@min-4xl:max-w-4xl min-h-screen mx-auto pt-16 pb-26 @max-md:pb-20 @max-md:pt-10 @max-md:px-3">
+    <div className="custom-container min-h-screen space-y-52 max-md:space-y-32 py-32! max-md:py-18!">
       <div className="space-y-20 @max-md:space-y-14">
-        <div className="flex items-center justify-center @max-md:flex-col-reverse gap-5">
-          <div className="grow space-y-5 max-md:space-y-3">
+        <div className="flex justify-between max-md:flex-col-reverse gap-5 max-md:gap-20">
+          <div className="w-1/2 max-md:w-full space-y-5 max-md:space-y-3">
             {data?.full_name || data?.bio ? (
               <>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center max-md:flex-col gap-2">
                   <PrimaryTitle title={data?.full_name} />
                   <div className="empty:hidden bg-green-600/15 font-dana-medium text-green-600 rounded-xl px-2 py-1">
-                    {membersRole[data?.role]}
+                    {membersRole[data?.role]?.title}
                   </div>
                 </div>
                 <PrimaryDescription
                   description={data?.bio}
                   className="max-md:text-center"
                 />
+                {data?.description?.length ? (
+                  <DVAbout about={data?.description} />
+                ) : null}
               </>
             ) : null}
           </div>
+
           {data?.avatar ? (
-            <Avatar src={data?.avatar} className="size-72" />
+            <Avatar src={data?.avatar} className="size-80 max-md:size-72" />
           ) : null}
         </div>
-
-        {data?.description?.length ? (
-          <DVAbout about={data?.description} />
-        ) : null}
 
         {data?.work_experiences?.length ? (
           <DVExperience experience={data?.work_experiences} />

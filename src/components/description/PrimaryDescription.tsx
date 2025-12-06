@@ -2,7 +2,12 @@ import { twMerge } from "tailwind-merge";
 
 export default function PrimaryDescription({ description, className }: any) {
   return (
-    <p className={twMerge("font-dana-medium dark:text-white/70 text-xl max-md:text-lg", className)}>
+    <p
+      className={twMerge(
+        "font-dana-medium text-white text-xl max-md:text-lg",
+        className
+      )}
+    >
       {description}
     </p>
   );

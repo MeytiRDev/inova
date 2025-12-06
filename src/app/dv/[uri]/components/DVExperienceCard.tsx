@@ -28,14 +28,16 @@ export default function DVExperienceCard({
       : drawerElement.style.removeProperty("height");
   }
 
+  const dateTime = `شروع ${start_date || "-"} / پایان ${end_date || "-"}`;
+
   return (
     <div
-      className="hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors rounded-xl p-2 space-y-3 group"
+      className="bg-bg-secondry transition-colors rounded-xl p-3 space-y-3 group"
       onClick={openDrawer}
     >
       <div className="flex items-center justify-between">
         <div className="grow flex items-center justify-center gap-3">
-          <div className="size-16 rounded-full overflow-hidden">
+          <div className="shrink-0 size-16 rounded-full overflow-hidden">
             <Image
               src={`${process.env.NEXT_PUBLIC_BASE_URL}/team/media/experience/${id}`}
               loader={({ src }) => src}
@@ -46,22 +48,19 @@ export default function DVExperienceCard({
             />
           </div>
           <div className="grow">
-            <div className="w-full flex items-center max-md:justify-between">
+            <div className="w-full flex max-md:justify-between max-md:flex-col">
               <ThirdTitle title={company_name} />
-              <MdOutlineKeyboardArrowLeft className="max-md:hidden text-lg dark:text-secondry invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-300" />
+              <MdOutlineKeyboardArrowLeft className="max-md:hidden text-lg text-green-500 invisible group-hover:visible opacity-0 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-300" />
               <SecondryDescription
-                description={`از ${start_date || "-"} تا ${end_date || "-"}`}
+                description={dateTime}
                 className="hidden max-md:block"
               />
             </div>
-            <p className="text-sm dark:text-white">{position}</p>
+            <p className="text-sm text-white">{position}</p>
           </div>
         </div>
 
-        <SecondryDescription
-          description={`از ${start_date || "-"} تا ${end_date || "-"}`}
-          className="max-md:hidden"
-        />
+        <SecondryDescription description={dateTime} className="max-md:hidden" />
       </div>
       <div
         id="drawer"

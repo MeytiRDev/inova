@@ -3,7 +3,7 @@ import AboutUsImage from "./AboutUsImage";
 
 export default function AboutUsSection() {
   return (
-    <section>
+    <section id="aboutUs">
       <div className="custom-container">
         <div className="flex items-center justify-between max-md:flex-col max-md:gap-4 pb-20">
           <AboutUsSectionDesc />

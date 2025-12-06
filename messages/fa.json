@@ -2,7 +2,8 @@
   "global": {
     "companyName": "اینوا",
     "more": "بیشتر",
-    "close": "بسته"
+    "close": "بسته",
+    "github": "گیت هاب"
   },
   "header": {
     "navigation": {
@@ -31,6 +32,19 @@
     },
     "members": {
       "title": "اعضای سازمان"
+    }
+  },
+  "dv": {
+    "experience": "تجربه های کاری",
+    "education": "تحصیلات",
+    "skills": "مهارت ها",
+    "projects": {
+      "badge": "آخرین پروژه ها",
+      "title": "آخرین پروژه های انجام شده"
+    },
+    "achievments": {
+      "badge": "آخرین مسابقه ها",
+      "title": "آخرین مسابقه های شرکت کرده"
     }
   }
 }

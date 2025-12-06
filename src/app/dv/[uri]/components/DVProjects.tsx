@@ -4,12 +4,14 @@ import CardDateTime from "@/components/card/CardDateTime";
 import CardDescription from "@/components/card/CardDescription";
 import CardPicture from "@/components/card/CardPicture";
 import CardTitle from "@/components/card/CardTitle";
-import PrimaryDescription from "@/components/description/PrimaryDescription";
 import SecondryTitle from "@/components/title/SecondryTitle";
+import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 import { twMerge } from "tailwind-merge";
 
 export default function DVProjects({ projects }: any) {
+  const translate = useTranslations("dv.projects");
+  
   const isProjects = projects && projects?.length;
   const isStartAndEndDate = `${
     projects?.end_date ? `${projects?.end_date} پایان` : ""
@@ -18,21 +20,18 @@ export default function DVProjects({ projects }: any) {
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-center">
-        <p className="text-sm px-2 py-1 rounded-md dark:text-black dark:bg-white font-dana-medium bg-black text-white">
-          آخرین پروژه ها{" "}
+        <p className="text-sm px-2 py-1 rounded-md dark:text-black font-dana-medium text-white">
+          {translate("badge")}
         </p>
       </div>
-      <SecondryTitle
-        title="آخرین پروژه های انجام شده"
-        className="justify-center"
-      />
-      <PrimaryDescription
-        description="من روی پروژه‌های متنوعی کار کرده‌ام، از وب‌سایت‌های ساده گرفته تا برنامه‌های وب پیچیده.
-در ادامه چند تا از موردعلاقه‌هایم را می‌بینید."
-        className="w-2/3 max-md:w-full text-center mx-auto"
-      />
+      <SecondryTitle title={translate("title")} className="justify-center" />
       <div
-        className={twMerge("", isProjects ? "grid grid-cols-3 max-md:grid-cols-1 gap-5" : null)}
+        className={twMerge(
+          "",
+          isProjects
+            ? "grid grid-cols-3 max-md:grid-cols-1 max-md:gap-4 gap-5"
+            : null
+        )}
       >
         {isProjects ? (
           projects?.map((project: any) => {

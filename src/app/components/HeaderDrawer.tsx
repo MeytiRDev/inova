@@ -20,7 +20,6 @@ function DrawerHeader() {
       >
         {translate("title")}
       </h2>
-      {/* <button type="button" onClick={}></button> */}
     </div>
   );
 }
@@ -39,7 +38,10 @@ export default function HeaderDrawer({ children }: any) {
       <button type="button" onClick={switchDrawer}>
         <RiMenu5Fill className="text-xl text-white" />
       </button>
-      <a className="hidden max-md:block" href="https://github.com/InovaCompanyIr">
+      <a
+        className="hidden max-md:block"
+        href="https://github.com/InovaCompanyIr"
+      >
         {<SiGithub className="text-white/75 text-xl" />}
       </a>
       <Drawer

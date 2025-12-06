@@ -2,7 +2,8 @@
   "global": {
     "companyName": "inova",
     "more": "more",
-    "close": "close"
+    "close": "close",
+    "github": "github"
   },
   "header": {
     "navigation": {
@@ -31,6 +32,19 @@
     },
     "members": {
       "title": "organization members"
+    }
+  },
+  "dv": {
+    "experience": "experience",
+    "education": "education",
+    "skills": "skills",
+    "projects": {
+      "badge": "last projects",
+      "title": "latest completed projects"
+    },
+    "achievments": {
+      "badge": "last achievments",
+      "title": "latest competitions participated in"
     }
   }
 }

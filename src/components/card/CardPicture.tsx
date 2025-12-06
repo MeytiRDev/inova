@@ -29,7 +29,7 @@ export default function CardPicture({ avatar, url = "/" }: any) {
         alt="..."
         width={300}
         height={300}
-        className="size-full object-cover object-top"
+        className="size-full object-cover object-center"
       />
     </Link>
   );
